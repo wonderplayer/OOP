@@ -31,7 +31,7 @@ class ExtBook extends Book {
     }
 
     public void show() {
-        if(pageCount > 99){
+        if(pageCount > 100){
             super.show();
             System.out.println(publisher);
             System.out.println(pageCount);
@@ -87,7 +87,7 @@ class Main {
                 result.append(s.charAt(k-1));
         } //for
         return result.toString();
-    } // reverse()
+    }
 
 }
 
