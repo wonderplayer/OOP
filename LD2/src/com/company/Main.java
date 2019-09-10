@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Scanner;  // Import the Scanner class
 
 class Book {
     // these are now protected
@@ -71,21 +72,15 @@ class Main {
                 "Kerouac", 1955, "Viking", 100);
         for (int i = 0; i < books.length; i++) books[i].show();
 
-        // Find books by author
-        System.out.println("Showing all books by Schildt.");
-        for (int i = 0; i < books.length; i++)
-            if (books[i].getAuthor() == "Schildt")
-                System.out.println(books[i].getTitle());
-
-
 // Otrais uzdevums
-
-        System.out.println(reverse("123456789"));
-
+        Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Ievadiet tekstu");
+        String teksts = scanner.nextLine();
+        System.out.println(pusteksts(teksts));
     }
 
 
-    public static String reverse(String s) {
+    public static String pusteksts(String s) {
         StringBuffer result = new StringBuffer();
         for (int k = 1; k < s.length(); k++) {
             if(k % 2 == 0)
