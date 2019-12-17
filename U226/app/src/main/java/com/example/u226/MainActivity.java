@@ -36,15 +36,20 @@ public class MainActivity extends AppCompatActivity {
             if(map.containsKey(currentCharacter)){
                 value = map.get(currentCharacter);
                 value++;
-                characterCount--;
             }
             map.put(currentCharacter,value);
         }
         StringBuilder sb = new StringBuilder();
         Iterator it = map.entrySet().iterator();
+        int relative = 0;
+        double a = 0.0;
+        int b;
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            sb.append(String.format("%c-%d, ",pair.getKey(),pair.getValue()));
+            b = (int)pair.getValue();
+            a = (double)((double)b/characterCount);
+            relative = (int)(a*100);
+            sb.append(String.format("%c-%d%%, ",pair.getKey(),relative));
         }
         TextView tw = (TextView)findViewById(R.id.textView);
         tw.setText(sb.toString());
