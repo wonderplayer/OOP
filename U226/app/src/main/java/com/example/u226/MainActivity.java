@@ -23,35 +23,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickOk(View view) {
-        final EditText text = (EditText)findViewById(R.id.vards);
-        final String myText = text.getText().toString();
+        final EditText tekstaLauks = (EditText)findViewById(R.id.vards);
+        final String teksts = tekstaLauks.getText().toString();
         Map<Character, Integer> map = new HashMap<Character, Integer>();
-        int value;
-        char currentCharacter;
-        int characterCount = 0;
-        for (int i = 0; i < myText.length(); i++) {
-            currentCharacter = myText.charAt(i);
-            value = 1;
-            characterCount++;
-            if(map.containsKey(currentCharacter)){
-                value = map.get(currentCharacter);
-                value++;
+        int vertiba;
+        char tekosaisSimbols;
+        int skaits = 0;
+        for (int i = 0; i < teksts.length(); i++) {
+            tekosaisSimbols = teksts.charAt(i);
+            vertiba = 1;
+            skaits++;
+            if(map.containsKey(tekosaisSimbols)){
+                vertiba = map.get(tekosaisSimbols);
+                vertiba++;
             }
-            map.put(currentCharacter,value);
+            map.put(tekosaisSimbols,vertiba);
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder izvads = new StringBuilder();
         Iterator it = map.entrySet().iterator();
-        int relative = 0;
-        double a = 0.0;
-        int b;
+        int biezums = 0;
+        double peldosaisPunkts = 0.0;
+        int paraVertiba;
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            b = (int)pair.getValue();
-            a = (double)((double)b/characterCount);
-            relative = (int)(a*100);
-            sb.append(String.format("%c-%d%%, ",pair.getKey(),relative));
+            paraVertiba = (int)pair.getValue();
+            peldosaisPunkts = (double)((double)paraVertiba/skaits);
+            biezums = (int)(peldosaisPunkts*100);
+            izvads.append(String.format("%c-%d%%, ",pair.getKey(),biezums));
         }
-        TextView tw = (TextView)findViewById(R.id.textView);
-        tw.setText(sb.toString());
+        TextView izvadaLauks = (TextView)findViewById(R.id.textView);
+        izvadaLauks.setText(izvads.toString());
     }
 }
